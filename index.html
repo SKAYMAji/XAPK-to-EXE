@@ -1,71 +1,65 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>XAPK to EXE</title>
     <style>
       :root {
-        color-scheme: light;
-        --primary: #2563eb;
-        --secondary: #111827;
-        --muted: #6b7280;
-        --bg: #f8fafc;
-        --card: #ffffff;
+        color-scheme: dark;
+        --bg: #0b0f1f;
+        --panel: #131a2b;
+        --panel-border: rgba(255, 255, 255, 0.08);
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --accent: #6d5efc;
+        --accent-2: #3b82f6;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
         margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: var(--bg);
-        color: var(--secondary);
-        direction: rtl;
+        min-height: 100vh;
+        font-family: "IBM Plex Sans", "Segoe UI", Tahoma, sans-serif;
+        background: radial-gradient(circle at top left, #1e2a4d, transparent 40%),
+          radial-gradient(circle at top right, #1a1440, transparent 35%),
+          var(--bg);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 16px;
       }
 
-      header {
-        background: var(--primary);
-        color: #fff;
-        padding: 48px 20px 32px;
-        text-align: center;
+      .container {
+        width: min(960px, 100%);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
       }
 
-      header h1 {
-        margin: 0 0 12px;
+      .hero {
+        grid-column: 1 / -1;
+        background: linear-gradient(140deg, rgba(109, 94, 252, 0.22), rgba(59, 130, 246, 0.18));
+        border: 1px solid var(--panel-border);
+        border-radius: 24px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      }
+
+      .hero h1 {
+        margin: 0;
         font-size: 2.2rem;
       }
 
-      header p {
+      .hero p {
         margin: 0;
-        font-size: 1.1rem;
-      }
-
-      main {
-        max-width: 980px;
-        margin: -32px auto 40px;
-        padding: 0 20px;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-      }
-
-      .card {
-        background: var(--card);
-        padding: 20px;
-        border-radius: 14px;
-        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
-      }
-
-      .card h2 {
-        margin-top: 0;
-        font-size: 1.2rem;
-      }
-
-      .steps {
-        margin: 0;
-        padding: 0 18px 0 0;
         color: var(--muted);
         line-height: 1.8;
       }
@@ -74,104 +68,105 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 16px;
       }
 
       .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 16px;
-        border-radius: 999px;
+        padding: 12px 18px;
+        border-radius: 12px;
         text-decoration: none;
         font-weight: 600;
         border: 1px solid transparent;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
       .button.primary {
-        background: #fff;
-        color: var(--primary);
+        background: linear-gradient(120deg, var(--accent), var(--accent-2));
+        color: #fff;
+        box-shadow: 0 12px 24px rgba(109, 94, 252, 0.25);
       }
 
       .button.secondary {
         background: transparent;
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.6);
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.25);
       }
 
-      .download {
-        background: var(--card);
-        padding: 24px;
-        border-radius: 16px;
-        margin-top: 24px;
-        text-align: center;
+      .button:hover {
+        transform: translateY(-2px);
       }
 
-      .download a {
-        background: var(--primary);
-        color: #fff;
-        text-decoration: none;
-        padding: 12px 20px;
-        border-radius: 10px;
-        display: inline-block;
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        border-radius: 18px;
+        padding: 20px;
+      }
+
+      .card h2 {
+        margin: 0 0 12px;
+        font-size: 1.2rem;
+      }
+
+      .card ul,
+      .card ol {
+        margin: 0;
+        padding-inline-start: 18px;
+        color: var(--muted);
+        line-height: 1.8;
       }
 
       footer {
+        grid-column: 1 / -1;
         text-align: center;
         color: var(--muted);
-        padding: 20px;
+        font-size: 0.9rem;
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>أداة تحويل XAPK إلى APK و APK إلى EXE</h1>
-      <p>واجهة بسيطة لتسهيل استخراج APK من XAPK وتحويل APK إلى ملف EXE.</p>
-      <div class="actions">
-        <a class="button primary" href="https://github.com/SKAYMAji/XAPK-to-EXE" target="_blank" rel="noreferrer">
-          فتح المستودع
-        </a>
-        <a class="button secondary" href="#download">طريقة التشغيل</a>
-      </div>
-    </header>
-
-    <main>
-      <section class="grid">
-        <div class="card">
-          <h2>تحويل XAPK إلى APK</h2>
-          <ol class="steps">
-            <li>اختر ملف XAPK من جهازك.</li>
-            <li>حدّد مجلد الحفظ.</li>
-            <li>سيتم استخراج ملف APK تلقائياً.</li>
-          </ol>
-        </div>
-        <div class="card">
-          <h2>تحويل APK إلى EXE</h2>
-          <ol class="steps">
-            <li>ثبّت PyInstaller عبر <strong>pip install pyinstaller</strong>.</li>
-            <li>اختر ملف APK المطلوب.</li>
-            <li>حدّد مجلد الإخراج لإنشاء ملف EXE.</li>
-          </ol>
-        </div>
-        <div class="card">
-          <h2>ملاحظات مهمة</h2>
-          <ul class="steps">
-            <li>تحويل APK إلى EXE مخصص لأجهزة Windows.</li>
-            <li>الملف الناتج يمكنه تثبيت APK عبر adb إن توفر.</li>
-          </ul>
+    <div class="container">
+      <section class="hero">
+        <h1>منصة تحويل XAPK إلى APK و APK إلى EXE</h1>
+        <p>
+          هذه صفحة المشروع الرسمية. يمكنك استخراج APK من ملفات XAPK بسهولة، أو
+          تحويل APK إلى ملف EXE مناسب للتوزيع على Windows.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/SKAYMAji/XAPK-to-EXE" target="_blank" rel="noreferrer">
+            فتح المستودع
+          </a>
+          <a class="button secondary" href="#steps">طريقة التشغيل</a>
         </div>
       </section>
 
-      <section id="download" class="download">
-        <h2>طريقة التشغيل</h2>
-        <p>قم باستنساخ المشروع ثم شغّل:</p>
-        <p><strong>python app.py</strong></p>
-        <a href="https://github.com/SKAYMAji/XAPK-to-EXE" target="_blank" rel="noreferrer">
-          الانتقال إلى GitHub
-        </a>
+      <section id="steps" class="card">
+        <h2>تحويل XAPK إلى APK</h2>
+        <ol>
+          <li>شغّل الأداة واختر XAPK من جهازك.</li>
+          <li>حدّد مجلد الحفظ المناسب.</li>
+          <li>سيتم استخراج ملف APK مباشرة.</li>
+        </ol>
       </section>
-    </main>
 
-    <footer>© 2025 XAPK-to-EXE</footer>
+      <section class="card">
+        <h2>تحويل APK إلى EXE</h2>
+        <ol>
+          <li>ثبّت PyInstaller عبر الأمر: <strong>pip install pyinstaller</strong>.</li>
+          <li>اختر ملف APK المطلوب.</li>
+          <li>احصل على ملف EXE جاهز للتوزيع.</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>ملاحظات مهمة</h2>
+        <ul>
+          <li>ميزة APK → EXE مخصصة لأجهزة Windows.</li>
+          <li>يمكن تثبيت APK عبر adb إن توفر.</li>
+          <li>شغّل التطبيق عبر: <strong>python app.py</strong>.</li>
+        </ul>
+      </section>
+
+      <footer>© 2025 XAPK-to-EXE</footer>
+    </div>
   </body>
 </html>
