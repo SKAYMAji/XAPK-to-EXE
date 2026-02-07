@@ -22,3 +22,7 @@ Follow the GUI prompts to pick the input file and output folder.
 
 - The APK → EXE option packages the APK inside a PyInstaller-built executable.
 - The generated EXE extracts the APK and optionally installs it via `adb` if available.
+
+## GitHub Pages
+
+This repository includes a simple `index.html` landing page for GitHub Pages.

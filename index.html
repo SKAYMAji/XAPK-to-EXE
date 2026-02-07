@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>XAPK to EXE</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --primary: #2563eb;
+        --secondary: #111827;
+        --muted: #6b7280;
+        --bg: #f8fafc;
+        --card: #ffffff;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--bg);
+        color: var(--secondary);
+        direction: rtl;
+      }
+
+      header {
+        background: var(--primary);
+        color: #fff;
+        padding: 48px 20px 32px;
+        text-align: center;
+      }
+
+      header h1 {
+        margin: 0 0 12px;
+        font-size: 2.2rem;
+      }
+
+      header p {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+
+      main {
+        max-width: 980px;
+        margin: -32px auto 40px;
+        padding: 0 20px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 14px;
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+      }
+
+      .card h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+      }
+
+      .steps {
+        margin: 0;
+        padding: 0 18px 0 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid transparent;
+      }
+
+      .button.primary {
+        background: #fff;
+        color: var(--primary);
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+
+      .download {
+        background: var(--card);
+        padding: 24px;
+        border-radius: 16px;
+        margin-top: 24px;
+        text-align: center;
+      }
+
+      .download a {
+        background: var(--primary);
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 10px;
+        display: inline-block;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>أداة تحويل XAPK إلى APK و APK إلى EXE</h1>
+      <p>واجهة بسيطة لتسهيل استخراج APK من XAPK وتحويل APK إلى ملف EXE.</p>
+      <div class="actions">
+        <a class="button primary" href="https://github.com/SKAYMAji/XAPK-to-EXE" target="_blank" rel="noreferrer">
+          فتح المستودع
+        </a>
+        <a class="button secondary" href="#download">طريقة التشغيل</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="grid">
+        <div class="card">
+          <h2>تحويل XAPK إلى APK</h2>
+          <ol class="steps">
+            <li>اختر ملف XAPK من جهازك.</li>
+            <li>حدّد مجلد الحفظ.</li>
+            <li>سيتم استخراج ملف APK تلقائياً.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h2>تحويل APK إلى EXE</h2>
+          <ol class="steps">
+            <li>ثبّت PyInstaller عبر <strong>pip install pyinstaller</strong>.</li>
+            <li>اختر ملف APK المطلوب.</li>
+            <li>حدّد مجلد الإخراج لإنشاء ملف EXE.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h2>ملاحظات مهمة</h2>
+          <ul class="steps">
+            <li>تحويل APK إلى EXE مخصص لأجهزة Windows.</li>
+            <li>الملف الناتج يمكنه تثبيت APK عبر adb إن توفر.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="download" class="download">
+        <h2>طريقة التشغيل</h2>
+        <p>قم باستنساخ المشروع ثم شغّل:</p>
+        <p><strong>python app.py</strong></p>
+        <a href="https://github.com/SKAYMAji/XAPK-to-EXE" target="_blank" rel="noreferrer">
+          الانتقال إلى GitHub
+        </a>
+      </section>
+    </main>
+
+    <footer>© 2025 XAPK-to-EXE</footer>
+  </body>
+</html>
