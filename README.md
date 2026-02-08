@@ -26,3 +26,4 @@ Follow the GUI prompts to pick the input file and output folder.
 ## GitHub Pages
 
 This repository includes a simple `index.html` landing page for GitHub Pages.
+If your Pages source is set to `/docs`, use `docs/index.html`.
